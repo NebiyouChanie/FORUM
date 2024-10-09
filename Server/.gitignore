@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+ 
+
+# Temporary files or directories
+*.tmp
+*.lock
+
+# IDE specific files (optional, depending on what you use)
+.vscode/
+.idea/
+*.sublime-workspace
+
+# npm related files
+package-lock.json
+yarn.lock
+
+# Build directories (if any)
+dist/
+build/
