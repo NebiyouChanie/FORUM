@@ -3,7 +3,7 @@ require('dotenv').config({path:'../.env'});
 
 // DB CONFIGURATION
 
-const dbConnection = mysql.createConnection({
+const dbConnection = mysql.createPool({
     user: process.env.USER,
     database: process.env.DATABASE,
     host: process.env.HOST || "127.0.0.1",
