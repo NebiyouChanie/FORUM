@@ -27,8 +27,7 @@ const token = localStorage.getItem('token');
     }
   }
 
-  useEffect( ()=>{fetchQuestions()},[])
-console.log("wellcommmmmmmm",user)
+  useEffect( ()=>{fetchQuestions()},[fetchQuestions])
   return (
     <div>
         <div className='flex justify-between py-12 mx-8 md:px-12 lg:mx-[20%]  border-b-2'>
