@@ -23,17 +23,20 @@ app.use('/answers',answerRoutes)
 
 async function start() {
     try {
-        const response=await dbConnection.connect();
+        // Test the database connection
+        const [rows] = await dbConnection.query('SELECT 1');
         console.log("Database connected");
+
         app.listen(port, () => {
-            console.log("The server is listening on port: ", port);
+            console.log(`The server is listening on port: ${port}`);
         });
     } catch (error) {
-        console.log(error.message);
+        console.error("Error connecting to the database:", error.message);
     }
 }
 
-start()
+start();
+
  
 
  
