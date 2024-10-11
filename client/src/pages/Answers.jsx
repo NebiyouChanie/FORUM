@@ -19,7 +19,7 @@ function Answers() {
 // post answer
     const postAnswer = async (data) =>{
         try {
-            const response = await fetch(`http://localhost:5500/answers/questions/${questionid}/postanswer`,
+            const response = await fetch(`https://forum-vo1g.onrender.com/answers/questions/${questionid}/postanswer`,
                 {method:'POST',
                 headers:{
                     'Authorization' :`Bearer ${token}`,
@@ -50,7 +50,6 @@ function Answers() {
               });
               const answers = await response.json();
               setAnswers(answers)
-              console.log(answers)
 
               
             
@@ -82,12 +81,14 @@ function Answers() {
         }
       }
 
-     useEffect(()=>{
-        fetchSingleQuestions()
-        fetchAnswers()},[])
-     useEffect(()=>{
-        fetchSingleQuestions()
-        },[answers])
+     useEffect(() => {
+        fetchSingleQuestions();
+        fetchAnswers();
+    }, [fetchSingleQuestions, fetchAnswers]); 
+
+    useEffect(() => {
+        fetchSingleQuestions();
+    }, [answers, fetchSingleQuestions]);
     
   return (
     <div>
