@@ -38,7 +38,7 @@ function generateQuestionId(){
 async function inserQuestion({userid,title,description,tag}) {
     const questionid = generateQuestionId();
     await dbConnection.query(
-        "INSERT INTO QUESTIONS (questionid,userid,title,description,tag) VALUES (?,?,?,?,?)",
+        "INSERT INTO questions (questionid,userid,title,description,tag) VALUES (?,?,?,?,?)",
         [questionid,userid,title,description,tag]
     )
     return {msg:"question posted successfully!"}
