@@ -22,7 +22,7 @@ async function registerUser({username,firstname,lastname,email,password}) {
 
     // INSERT THE NEW USER INTO THE DATABASE
     await dbConnection.query(
-        "INSERT INTO USERS (username, firstname, lastname, email, password) VALUES (?,?,?,?,?)",
+        "INSERT INTO users (username, firstname, lastname, email, password) VALUES (?,?,?,?,?)",
         [username,firstname,lastname,email,hash]);
     return {msg:"User registered successfully"}
   
@@ -53,7 +53,6 @@ async function loginUser({email , password}) {
         {expiresIn : '1d'});
     
     const {username} = user
-    console.log("userrrrrr",username)
     return {msg:"User Logedin successfully",token,username}
 
 }
