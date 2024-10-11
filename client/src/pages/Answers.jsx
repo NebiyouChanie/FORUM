@@ -42,7 +42,7 @@ function Answers() {
     // fetch all answers
     const fetchAnswers = async () => {
         try {
-              const response =  await fetch(`http://localhost:5500/answers/questions/${questionid}/answers`,{
+              const response =  await fetch(`https://forum-vo1g.onrender.com/answers/questions/${questionid}/answers`,{
                 method:'GET',
                 headers:{
                     'Authorization':`Bearer ${token}`
