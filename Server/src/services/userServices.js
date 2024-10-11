@@ -49,7 +49,7 @@ async function loginUser({email , password}) {
     }
 
     const token = jwt.sign({userid:user.userid,username:user.username},
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRETE,
         {expiresIn : '1d'});
     
     const {username} = user
