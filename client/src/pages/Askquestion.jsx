@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
@@ -53,7 +53,7 @@ function Askquestion() {
         }
       },2000)
     }
-  },[serverResponse])
+  },[serverResponse,error,navigate])
   return (
     <div>
       <div className=' mb-32'>
