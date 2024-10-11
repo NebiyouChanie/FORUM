@@ -15,7 +15,7 @@ function RegistrationForm({reg,set}) {
   const onSubmit =async (data) => {
     setIsSubmitting(true)
     try {
-      const response = await fetch('http://localhost:5500/users/register',{
+      const response = await fetch('https://forum-vo1g.onrender.com/users/register',{
        method: 'POST',
        headers: {
         'Content-Type':'application/json'
@@ -46,13 +46,15 @@ function RegistrationForm({reg,set}) {
 
 // Error popup 
   useEffect(()=>{
-    if(serverResponse){setTimeout(()=>{
+    if(serverResponse){
+      const timer = setTimeout(()=>{
       setServerResponse('')
       if(!error){
         navigate('/users/login')
       }
     },2000);
-  }},[serverResponse])
+      return () => clearTimeout(timer);
+  }},[serverResponse,error,navigate])
 
 
   return (
