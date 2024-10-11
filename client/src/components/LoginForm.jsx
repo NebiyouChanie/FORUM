@@ -54,18 +54,19 @@ function LoginForm() {
         }
     };
     
-    useEffect(()=>{
-        if(serverResponse){
-            setTimeout(()=>{
-                setServerResponse('')
-                if(!error){
-                    navigate('/questions')
+    useEffect(() => {
+        if (serverResponse) {
+            const timer = setTimeout(() => {
+                setServerResponse('');
+                if (!error) {
+                    navigate('/questions');
                 }
-            }
-            ,2000)
+            }, 2000);
 
+            return () => clearTimeout(timer);  
         }
-    },[serverResponse, error, navigate])
+    }, [serverResponse, error, navigate]);
+
     return (
         <div className='flex flex-col items-center pt-8 pb-16 px-8 text-center'>
             <h3 className='text-lg font-semibold'>Join the network</h3>
