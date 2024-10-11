@@ -18,7 +18,7 @@ function Askquestion() {
   const postQuestion = async (data)=>{
     setIsSubmitting(true)
     try {
-      const response = await fetch('http://localhost:5500/questions/ask',{
+      const response = await fetch('https://forum-vo1g.onrender.com/questions/ask',{
         method:"POST",
         headers:{
           'Content-Type':'application/json',
