@@ -17,7 +17,7 @@ function LoginForm() {
         setIsSubmitting(true)
         try {
             setIsSubmitting(true)
-            const response = await fetch('http://localhost:5500/users/login', {  
+            const response = await fetch('https://forum-vo1g.onrender.com/users/login', {  
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,7 +38,6 @@ function LoginForm() {
             const result = await response.json();  
 
             setUser(result.username)
-            console.log("aftttttttttttttttttttttter serttted",user)
             localStorage.setItem('token',result.token);
             
             setServerResponse(result.msg)
@@ -66,7 +65,7 @@ function LoginForm() {
             ,2000)
 
         }
-    },[serverResponse])
+    },[serverResponse, error, navigate])
     return (
         <div className='flex flex-col items-center pt-8 pb-16 px-8 text-center'>
             <h3 className='text-lg font-semibold'>Join the network</h3>
